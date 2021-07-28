@@ -9,6 +9,10 @@ public class TSRC : IGRC
 {
     public static TSRC TSIS;    //Test scene instance;
 
+    public Transform Body_TRANS;
+    public Transform Camera_TRANS;
+    public ControllerInput right_CI;
+
     protected override void Awake()
     {
         TSIS = this;

@@ -4,24 +4,25 @@ using UnityEngine;
 
 public class GrabItemBase : MonoBehaviour, GrabItemIF
 {
-
     protected bool being_grabed;
     protected bool grabable;
+    protected Color init_color;
+    protected Color highlight_color;
 
-    private void Awake()
+    protected virtual void Awake()
     {
         grabable = false;
         being_grabed = false;
     }
 
     // Start is called before the first frame update
-    void Start()
+    protected virtual void Start()
     {
         
     }
 
     // Update is called once per frame
-    void Update()
+    protected virtual void Update()
     {
         
     }
@@ -54,6 +55,26 @@ public class GrabItemBase : MonoBehaviour, GrabItemIF
     }
 
     public virtual void GrabableHighlight()
+    {
+        throw new System.NotImplementedException();
+    }
+
+    public virtual void GrabableDehighlight()
+    {
+        throw new System.NotImplementedException();
+    }
+
+    public virtual void Selected()
+    {
+        throw new System.NotImplementedException();
+    }
+
+    public virtual void Deselected()
+    {
+        throw new System.NotImplementedException();
+    }
+
+    public virtual bool IsGrabable()
     {
         throw new System.NotImplementedException();
     }

@@ -2,6 +2,7 @@
 
 public interface GrabHandIF
 {
+    void Grab();
     void Grab(Transform other_TRANS);
     void UnGrab();
     void ChangeGrabingState(bool _is_grabing);

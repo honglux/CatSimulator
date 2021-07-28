@@ -4,14 +4,24 @@ using UnityEngine;
 
 public class TSGrabItem : GrabItemBase
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] private Color _init_color;
+    [SerializeField] private Color _highlight_color;
+
+    protected override void Awake()
     {
-        
+        base.Awake();
+        init_color = _init_color;
+        highlight_color = _highlight_color;
+    }
+
+    // Start is called before the first frame update
+    protected override void Start()
+    {
+        Init_item();
     }
 
     // Update is called once per frame
-    void Update()
+    protected override void Update()
     {
         
     }
@@ -24,12 +34,16 @@ public class TSGrabItem : GrabItemBase
 
     public override void BeGrab()
     {
+        Debug.Log("BeGrab");
+        GetComponent<Rigidbody>().useGravity = false;
         ChangeBeingGrabedState(true);
         ChangeGrabableState(false);
     }
 
     public override void BeRelease()
     {
+        Debug.Log("BeRelease");
+        GetComponent<Rigidbody>().useGravity = true;
         ChangeBeingGrabedState(false);
         ChangeGrabableState(true);
     }
@@ -46,6 +60,26 @@ public class TSGrabItem : GrabItemBase
 
     public override void GrabableHighlight()
     {
-        throw new System.NotImplementedException();
+        GetComponent<MeshRenderer>().material.color = highlight_color;
+    }
+
+    public override void GrabableDehighlight()
+    {
+        GetComponent<MeshRenderer>().material.color = init_color;
+    }
+
+    public override void Selected()
+    {
+        GrabableHighlight();
+    }
+
+    public override void Deselected()
+    {
+        GrabableDehighlight();
+    }
+
+    public override bool IsGrabable()
+    {
+        return grabable;
     }
 }

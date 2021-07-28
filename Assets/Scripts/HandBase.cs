@@ -4,24 +4,25 @@ using UnityEngine;
 
 public class HandBase : MonoBehaviour, GrabHandIF
 {
-
     protected bool able_to_grab;
     protected bool is_grabing;
+    protected Transform grab_target_TRANS;
 
-    private void Awake()
+    protected virtual void Awake()
     {
+        grab_target_TRANS = null;
         able_to_grab = false;
         is_grabing = false;
     }
 
     // Start is called before the first frame update
-    void Start()
+    protected virtual void Start()
     {
         
     }
 
     // Update is called once per frame
-    void Update()
+    protected virtual void Update()
     {
         
     }
@@ -49,6 +50,11 @@ public class HandBase : MonoBehaviour, GrabHandIF
     }
 
     public virtual void UnGrab()
+    {
+        throw new System.NotImplementedException();
+    }
+
+    public virtual void Grab()
     {
         throw new System.NotImplementedException();
     }

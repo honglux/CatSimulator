@@ -24,4 +24,8 @@ EditorBuildSettings:
     path: Assets/Photon/PhotonUnityNetworking/Demos/PunBasics-Tutorial/Scenes/PunBasics-Room
       for 4.unity
     guid: e7a7f9734636d415ca84ef3aaf7680f6
-  m_configObjects: {}
+  m_configObjects:
+    Unity.XR.Oculus.Settings: {fileID: 11400000, guid: c63114e61bbfe414bb88944d884d0955,
+      type: 2}
+    com.unity.xr.management.loader_settings: {fileID: 11400000, guid: ce02ba2242aa6d34086c6601499fa9da,
+      type: 2}
